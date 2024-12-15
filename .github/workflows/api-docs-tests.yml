@@ -1,0 +1,43 @@
+name: API DocS Tests
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+    - 'api-documentation/**'
+
+jobs:
+  validateDocumentation:
+    name: Validate Documentation
+
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: api-documentation
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Cache node modules
+      uses: actions/cache@v4
+      env:
+        cache-name: cache-node-modules
+      with:
+        path: ~/.npm
+        key: npm-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          npm-${{ env.cache-name }}-
+          npm-
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: npm ci
+      run: npm ci
+    - name: Publish v1 API Docs (Development)
+      run: npm run api:publish-v1 --stage=dev
