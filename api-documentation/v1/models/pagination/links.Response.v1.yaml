@@ -1,0 +1,17 @@
+title: Links
+type: object
+properties:
+  first:
+    type: string
+    format: url
+  last:
+    type: string
+    format: url
+  prev:
+    nullable: true
+    type: string
+    format: url
+  next:
+    nullable: true
+    type: string
+    format: url

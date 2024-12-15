@@ -1,0 +1,5 @@
+# securitySchemes:
+#   Authorization:
+#     type: http
+#     scheme: bearer
+#     description: ''

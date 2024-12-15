@@ -1,0 +1,13 @@
+{
+  "name": "api-documentation",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@apidevtools/swagger-cli": "^4.0.4",
+    "express": "^4.17.1",
+    "openapi-types": "^7.0.1"
+  },
+  "scripts": {
+    "api:publish-v1": "mkdir -p dist && npx swagger-cli bundle -r ./v1/API.v1.$npm_config_stage.yaml > ./dist/API.v1.json",
+    "start": "node dev-server.js"
+  }
+}

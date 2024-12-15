@@ -1,0 +1,59 @@
+/user:
+  get:
+    summary: Get Current User
+    description: "Get basic information about the current user - such as name, email, role and permissions."
+    operationId: get-user
+    tags: []
+    responses:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              description: ""
+              type: object
+              properties:
+                data:
+                  $ref: ./models/CurrentUser.Response.v1.yaml
+/users:
+  get:
+    summary: Get all Users
+    description: 'Get a list of all users by making a GET request to /users.'
+    operationId: get-user
+    tags: []
+    responses:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              description: ""
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: ./models/User.Response.v1.yaml
+                links:
+                  $ref: ./models/pagination/links.Response.v1.yaml
+                meta:
+                  $ref: ./models/pagination/meta.Response.v1.yaml
+  post:
+    summary: Create User
+    description: 'Create a user..'
+    operationId: create-user
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ./models/CreateUser.Request.v1.yaml
+    responses:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              description: ""
+              type: object
+              properties:
+                data:
+                  $ref: ./models/CreateUser.Response.v1.yaml

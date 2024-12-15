@@ -1,0 +1,14 @@
+openapi: 3.0.0
+tags:
+  $ref: ../common/tags.yaml
+servers:
+  - url: 'https://api.acme.local'
+    description: Dev
+paths:
+  $ref: ./API.v1.yaml
+components:
+  $ref: ../common/security-schemes.yaml
+security:
+  $ref: ../common/authorization.yaml
+info:
+  $ref: ../common/info.yaml

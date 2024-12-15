@@ -1,0 +1,19 @@
+title: Create User
+type: object
+properties:
+  username:
+    type: string
+    example: foo.bar
+  firstName:
+    type: string
+    example: Foo
+  lastName:
+    type: string
+    example: Bar
+  email:
+    type: string
+    format: email
+  password:
+    type: string
+    description: Must be at least 12 characters long
+    example: abcdef123456

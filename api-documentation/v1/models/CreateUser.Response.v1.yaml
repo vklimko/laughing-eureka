@@ -1,0 +1,18 @@
+title: Create User
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  username:
+    type: string
+    example: foo.bar
+  email:
+    type: string
+    format: email
+  firstName:
+    type: string
+    example: Foo
+  lastName:
+    type: string
+    example: Bar

@@ -1,0 +1,21 @@
+title: Meta
+type: object
+properties:
+  from:
+    type: number
+    description: Index of the first item
+  path:
+    type: string
+    format: url
+  to:
+    type: number
+    description: Index of the last item
+  total:
+    type: number
+    description: Total number of items
+  currentPage:
+    type: number
+  lastPage:
+    type: number
+  perPage:
+    type: number
